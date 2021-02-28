@@ -1,5 +1,5 @@
-
-
+//by Onula
+//This code returns the determinant of the array 
 
 /*__________________________________PIECE OF MAIN.C CODE_______________________________________________________
 #include <stdio.h>
@@ -72,21 +72,21 @@ __________________________________END OF PIECE OF MAIN.C CODE___________________
 //FIND DETERMINANT
 double det(int s, double array[s][s]){
    
-	if(s == 2){//2 x 2 array (Leibniz formula)
+    if(s == 2){//2 x 2 array (Leibniz formula)
         return s2(s, array);
     }
     else if(s == 3){//3 x 3 array (Sarrus formula)
         return s3(s,array);
     }
-    else{//s > 3 (s x s array)
+    else{ //s > 3 (s x s array)
     
         //Check if all elements of some row or column is all 0 before the Gaussian Elimination, because if at least one whole row or column is 0 the determinant is 0
         if(checkElements(s,array) == 0 ) return 0;
 		
-		//Check if some rows or columns is all same before the Gaussian Elimination, because if they exist the determinant is 0 ( det(array) = 0 )
-		if(checkRowsColumns(s,array) == 0 ) return 0;
+	//Check if some rows or columns is all same before the Gaussian Elimination, because if they exist the determinant is 0 ( det(array) = 0 )
+	if(checkRowsColumns(s,array) == 0 ) return 0;
 	
-		//Finding the determinant of array[][] with performing Gaussian Elimination that makes the array upper triangular, if the above expressions are false
+	//Finding the determinant of array[][] with performing Gaussian Elimination that makes the array upper triangular, if the above expressions are false
         return GaussianElimination(s,array); 
     }
 }
@@ -113,7 +113,7 @@ double s3(int s, double array[s][s]){
         d1 = array[0][0] * array[1][1] * array[2][2];
         d2 = array[0][1] * array[1][2] * array[2][0];
         d3 = array[0][2] * array[1][0] * array[2][1];
-    //Diagonal south-west to north-east lines
+        //Diagonal south-west to north-east lines
         d4 = array[2][0] * array[1][1] * array[0][2];
         d5 = array[2][1] * array[1][2] * array[0][0];
         d6 = array[2][2] * array[1][0] * array[0][1];
@@ -126,7 +126,7 @@ int checkElements(int s, double array[s][s]){
 	int i, j;
 	for(i=0; i<s; i++){
         int zeroesC = 0; //Zeroes counters of  i-column 
-		int zeroesR = 0;//Zeroes counters of i-row  
+	int zeroesR = 0;//Zeroes counters of i-row  
        	if(array[i][i] != 0) continue; //If the common element of i-row and i-column(or i-diagonal)it's not 0, there is no reason to check the other elements                 
 		for(j=0; j<s; j++){
 			
@@ -134,15 +134,15 @@ int checkElements(int s, double array[s][s]){
 		    if( (zeroesC != -1) && (array[j][i] == 0)) zeroesC += 1	; 
 		    else zeroesC = -1;//This means that at least one element is not 0
 		    //Check for i-row if the j-element is 0
-			if( (zeroesR != -1) && (array[i][j] == 0)) zeroesR += 1	;
-			else zeroesR = -1;//This means that at least one element is not 0
+		    if( (zeroesR != -1) && (array[i][j] == 0)) zeroesR += 1	;
+		    else zeroesR = -1;//This means that at least one element is not 0
 				
-			if((zeroesC == -1) && (zeroesR == -1)) break;//If at least one element of i-row and j-column it's not zero ,go to the next row and column
+		    if((zeroesC == -1) && (zeroesR == -1)) break;//If at least one element of i-row and j-column it's not zero ,go to the next row and column
 				
-			if( (zeroesC == s) || (zeroesR == s) ) return 0;// If the elements of i-row or i-column is all 0 the determinant it's 0 	
+		    if( (zeroesC == s) || (zeroesR == s) ) return 0;// If the elements of i-row or i-column is all 0 the determinant it's 0 	
 		}
-     }
-	 return -1;//It means that dont have column or row that all elements are 0	
+        }
+	return -1;//It means that dont have column or row that all elements are 0	
 }
 
 //If s>3 check if some rows or columns is all same before the Gaussian Elimination, because if they exist the determinant is 0 ( det(array) = 0 )
@@ -188,14 +188,14 @@ double GaussianElimination(int s, double array[s][s]){
 		if(array[ij][ij] == 0)// If the elemnt of diagonal is 0 needs to swap the ij row with another that the element is !=0 in ij-column
        		CheckAndSwap(s, ij, &sign, array);
 				
-		//Mathematical operations to zero the elements below the elemnt array[ij][ij] in ij-column
+	//Mathematical operations to zero the elements below the elemnt array[ij][ij] in ij-column
         for(k=ij+1; k<s; k++){  
-			a = array[k][ij]; //dividend
-			// (k row) = (ij row) * ( -(element of ij-column in k-row) / (elemnt of ij-row and ij-column in diagonal) + (k-row)
+	    a = array[k][ij]; //dividend
+	    // (k row) == (ij row) * ( -(element of ij-column in k-row) / (elemnt of ij-row and ij-column in diagonal) + (k-row)
             for(l=ij; l<s; l++){
-            //If you want to print the mathematical operations delete the slashes(//) below, before printf
-			//printf("array[%d][%d] = %f * ( %f/%f ) + %f \n", k, l, array[ij][l], -a, array[ij][ij] , array[k][l]);  
-            array[k][l] = array[ij][l] * ( -a / array[ij][ij] ) + array[k][l]; 
+                //If you want to print the mathematical operations delete the slashes(//) below, before printf
+	        //printf("array[%d][%d] = %f * ( %f/%f ) + %f \n", k, l, array[ij][l], -a, array[ij][ij] , array[k][l]);  
+                array[k][l] = array[ij][l] * ( -a / array[ij][ij] ) + array[k][l]; 
             }
         }
     }
