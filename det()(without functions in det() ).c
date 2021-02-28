@@ -1,3 +1,6 @@
+//by Onula
+//This code returns the determinant of the array
+
 /*__________________________________PIECE OF MAIN.C CODE_______________________________________________________
 #include <stdio.h>
 
