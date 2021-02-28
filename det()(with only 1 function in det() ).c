@@ -1,8 +1,5 @@
-
-
-
-
-
+//by Onula
+//This code returns the determinant of the array
 
 /*__________________________________PIECE OF MAIN.C CODE_______________________________________________________    
 #include <stdio.h>
@@ -38,7 +35,6 @@ int main(){
     
 	//Print the determinant of array[s][s]
 	printf("\ndet(array) is: %lf", determinant);
-
 }
 
 //READ ARRAY
@@ -61,8 +57,7 @@ void copyarray(int s, double cpyarray[s][s], double array[s][s]){
 		for(j=0; j<s; j++){
 			cpyarray[i][j] = array[i][j];
 		}
-	}
-	
+	}	
 }
 __________________________________END OF PIECE OF MAIN.C CODE______________________________________________________*/ 
 
