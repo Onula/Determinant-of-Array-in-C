@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1614474078 source:c:\users\onula\desktop\det\detlib.c
+	<stdio.h>
+	"detlib.h"
+
+1614473402 c:\users\onula\desktop\det\detlib.h
+
+1614473384 source:c:\users\onula\desktop\det\main.c
+	<stdio.h>
+	<stdlib.h>
+	"detlib.h"
+
