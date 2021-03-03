@@ -1,4 +1,4 @@
-# ----------------------Determinant-of-Array-in-C----------------------
+# ------------Determinant-of-Array-in-C------------
 # About det() function
 <p>1. Takes the size of array and the array(det(int s, double array[s][s])</p>
 <p>2. Returns the determinant of array( in this code returns double value )</p>
