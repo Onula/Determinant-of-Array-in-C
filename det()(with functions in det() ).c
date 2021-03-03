@@ -206,7 +206,7 @@ double GaussianElimination(int s, double array[s][s]){
     return sign * d; //This multiplication is done so that the determinant gets the right sign	
 }
 
-/* SWAP the ij-row  (if the element array[ij][ij]==0) with the row that the element in ij-column  is different from 0 (!=0).
+/* SWAP the ij-row  (if the element array[ij][ij]==0) with the row whose the element in ij-column is different from 0 (!=0).
    CHANGE the sign of result(determinant) if swap. */
 void CheckAndSwap(int s, int ij, int *sign, double array[s][s]){
 	int i,j;
